@@ -1,3 +1,4 @@
+import 'package:components/src/providers/menu_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,8 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _lista() {
+
+    print(menuProvider.opciones);
 
     return ListView(
       children: _listaItems(),
