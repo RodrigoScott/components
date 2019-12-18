@@ -1,3 +1,4 @@
+import 'package:components/src/pages/alert_page.dart';
 import 'package:components/src/providers/menu_provider.dart';
 import 'package:components/src/utils/icono_string_util.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
       initialData: [],
       builder: ( context, AsyncSnapshot<List<dynamic>> snapshot){
         return ListView(
-          children: _listaItems(snapshot.data),
+          children: _listaItems(snapshot.data, context),
         );
 
       },
@@ -30,7 +31,7 @@ class HomePage extends StatelessWidget {
 
   }
 
-  List<Widget> _listaItems( List<dynamic> data) {
+  List<Widget> _listaItems( List<dynamic> data, BuildContext context) {
 
     final List<Widget> opciones = [];
     
@@ -40,12 +41,18 @@ class HomePage extends StatelessWidget {
         title: Text(opt['texto']),
         leading: getIcon(opt ['icon']),
         trailing: Icon(Icons.keyboard_arrow_down, color: Colors.cyan ),
-        onTap: (){
+        onTap: () {
+          final route = MaterialPageRoute(
+              builder: (context) => alertPage()
+          );
+
+          Navigator.push(context, route);
 
         },
       );
-      opciones..add(widgetTemp)
-              ..add(Divider());
+
+      opciones.add(widgetTemp);
+      opciones.add(Divider());
 
     });
 
