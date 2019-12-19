@@ -13,7 +13,6 @@ class avatarPage extends StatelessWidget {
           Navigator.pop(context);
         },
       ),
-
     );
   }
 }
