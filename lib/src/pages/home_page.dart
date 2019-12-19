@@ -1,4 +1,4 @@
-import 'package:components/src/pages/alert_page.dart';
+
 import 'package:components/src/providers/menu_provider.dart';
 import 'package:components/src/utils/icono_string_util.dart';
 import 'package:flutter/cupertino.dart';
@@ -42,11 +42,6 @@ class HomePage extends StatelessWidget {
         leading: getIcon(opt ['icon']),
         trailing: Icon(Icons.keyboard_arrow_down, color: Colors.cyan ),
         onTap: () {
-          /*final route = MaterialPageRoute(
-              builder: (context) => alertPage()
-          );
-
-          Navigator.push(context, route);*/
 
           Navigator.pushNamed(context, opt['ruta']);
 
