@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:components/src/pages/alert_page.dart';
-import 'package:components/src/routes/reoutes.dart';
+import 'package:components/src/routes/routes.dart';
 
 
 void main() => runApp(MyApp());
