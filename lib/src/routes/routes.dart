@@ -9,11 +9,11 @@ Map <String, WidgetBuilder> getApplicationRoutes(){
 
 
 
-return <String, WidgetBuilder>{
+return <String, WidgetBuilder> {
   '/'     : (BuildContext context) => HomePage(),
   'alert' : (BuildContext context) => alertPage(),
   'avatar': (BuildContext context) => avatarPage(),
-  'card' : (BuildContext context) => CardPage(),
+  'card'  : (BuildContext context) => CardPage(),
 };
 
 }
