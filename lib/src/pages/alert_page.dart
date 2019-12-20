@@ -34,7 +34,7 @@ class alertPage extends StatelessWidget {
 void _mostrarAlerta(BuildContext context) {
   showDialog(
       context: context,
-    barrierDismissible: true,
+    barrierDismissible: true, //para poder salir de la alerta dando clic donde sea
     builder: (context){
 
         return AlertDialog( //sive para crear una alerta
