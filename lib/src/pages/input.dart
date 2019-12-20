@@ -11,6 +11,9 @@ class _inputPageState extends State<inputPage> {
 
   String _nombre = '';
   String _email = '';
+  String _fecha = '';
+
+  TextEditingController _controlFecha = new TextEditingController(); //permite cambiar los valores de una caja de texto
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +30,8 @@ class _inputPageState extends State<inputPage> {
           _crearEmail(),
           Divider(),
           _crearPassword(),
+          Divider(),
+          _crearFecha(context),
           Divider(),
         _crearPersona(),
         ],
@@ -119,5 +124,52 @@ class _inputPageState extends State<inputPage> {
    );
 
  }
+
+Widget  _crearFecha(BuildContext context) {
+
+  return TextField(
+
+    enableInteractiveSelection: false,
+    controller: _controlFecha,
+    decoration: InputDecoration( //para agregar propiedades al input
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+      hintText: 'Fecha de nacimiento',
+      labelText: 'Fecha de nacimiento',
+      suffixIcon: Icon(Icons.perm_contact_calendar),
+      icon: Icon(Icons.calendar_today),
+
+      ),
+      onTap: (){
+
+      FocusScope.of(context).requestFocus(new FocusNode());
+      _selectDate(context);
+
+      },
+
+  );
+
+}
+
+   _selectDate(BuildContext context) async {
+
+    DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: new DateTime.now(),
+        firstDate: new DateTime(2018),
+        lastDate: new DateTime(2025),
+      locale: Locale('es','ES')
+    );
+
+    if (picked != null){
+      setState(() {
+        _fecha = picked.toString();
+        _controlFecha.text = _fecha;
+      });
+    }
+
+   }
+
 
 }
