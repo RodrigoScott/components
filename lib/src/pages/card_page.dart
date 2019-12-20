@@ -92,9 +92,7 @@ Widget _cardTipo2() {
           height: 180,
           fit: BoxFit.cover,
         ),
-        /*Image(
-            image: NetworkImage('https://cdn1.epicgames.com/ue/product/Screenshot/7-1920x1080-c4334b28ada3ae5c0ce2bf769794e8ca-1920x1080-c4334b28ada3ae5c0ce2bf769794e8ca.jpg')
-        ),*/
+
         Container(
           padding: EdgeInsets.all(10),
             child: Text('Info al pie de imágen')
@@ -120,7 +118,6 @@ Widget _cardTipo2() {
 
         )
       ]
-      //color: Colors.cyan,
     ),
 
   );
