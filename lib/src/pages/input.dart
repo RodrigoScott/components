@@ -13,6 +13,10 @@ class _inputPageState extends State<inputPage> {
   String _email = '';
   String _fecha = '';
 
+  String _opcSelect = 'Volar';
+
+  List<String>_poderes = ['Volar','Rayos X','Super Aliento','Super Fuerza'] ;
+
   TextEditingController _controlFecha = new TextEditingController(); //permite cambiar los valores de una caja de texto
 
   @override
@@ -32,6 +36,8 @@ class _inputPageState extends State<inputPage> {
           _crearPassword(),
           Divider(),
           _crearFecha(context),
+          Divider(),
+          _crearDropdown(),
           Divider(),
         _crearPersona(),
         ],
@@ -73,6 +79,7 @@ class _inputPageState extends State<inputPage> {
     return ListTile(
       title: Text('El nombre es: $_nombre'),
       subtitle: Text('El email es: $_email'),
+      trailing: Text(_opcSelect),
     );
 
   }
@@ -170,6 +177,47 @@ Widget  _crearFecha(BuildContext context) {
     }
 
    }
+
+List<DropdownMenuItem<String>> getOpcionesDropdown(){
+
+    List<DropdownMenuItem<String>> lista = List();
+    _poderes.forEach((poder){
+
+      lista.add(DropdownMenuItem(
+
+        child: Text(poder),
+        //key: ,
+        value: poder,
+      ));
+
+    });
+
+    return lista;
+
+}
+
+Widget  _crearDropdown() {
+
+    return Row(
+      children: <Widget>[
+        Icon(Icons.select_all),
+    SizedBox(width: 30),
+    DropdownButton(
+    value: _opcSelect,
+      items: getOpcionesDropdown(),
+      onChanged: (opt){
+        setState(() {
+          _opcSelect = opt;
+        });
+
+      },
+    ),
+      ],
+    );
+
+
+
+}
 
 
 }
