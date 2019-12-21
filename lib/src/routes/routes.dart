@@ -4,6 +4,7 @@ import 'package:components/src/pages/avatar_page.dart';
 import 'package:components/src/pages/card_page.dart';
 import 'package:components/src/pages/home_page.dart';
 import 'package:components/src/pages/input.dart';
+import 'package:components/src/pages/listview_page.dart';
 import 'package:components/src/pages/slider_page.dart';
 
 
@@ -21,7 +22,8 @@ return <String, WidgetBuilder> {
   'card'              : (BuildContext context) => CardPage(),
   'animatedContainer' : (BuildContext context) => AnimatedContainerPage(),
   'inputs'            : (BuildContext context) => inputPage(),
-  'slide'              : (BuildContext context) => sliderPage(),
+  'slide'             : (BuildContext context) => sliderPage(),
+  'list'              : (BuildContext context) => ListaPage(),
 };
 
 }
