@@ -13,7 +13,7 @@ class alertPage extends StatelessWidget {
             textColor: Colors.white,
             shape: StadiumBorder(),
 
-            onPressed: () => _mostrarAlerta(context), //se tiene que hacer de esta forma cuando se mandan argumentos
+            onPressed: () => _mostrarAlerta(context),
 
         ),
 
@@ -34,10 +34,10 @@ class alertPage extends StatelessWidget {
 void _mostrarAlerta(BuildContext context) {
   showDialog(
       context: context,
-    barrierDismissible: true, //para poder salir de la alerta dando clic donde sea
+    barrierDismissible: true,
     builder: (context){
 
-        return AlertDialog( //sive para crear una alerta
+        return AlertDialog(
           shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
 
           title: Text('Titulo'),

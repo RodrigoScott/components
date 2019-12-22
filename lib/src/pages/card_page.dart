@@ -55,7 +55,7 @@ floatingActionButton: FloatingActionButton(
  Widget _cardTipo1() {
 
     return Card(
-      elevation: 5, //crear sombra
+      elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Column(
         children: <Widget>[

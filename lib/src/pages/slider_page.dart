@@ -35,7 +35,6 @@ class _sliderPageState extends State<sliderPage> {
 
     return Slider(
       activeColor: Colors.indigo,
-        //divisions: 20,
         label: 'Tamaño de la imágen',
         value: _valSlider,
         min: 0.0,

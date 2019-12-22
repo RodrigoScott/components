@@ -39,7 +39,7 @@ class avatarPage extends StatelessWidget {
       ),
         ),
       
-      floatingActionButton: FloatingActionButton( //boton flotante
+      floatingActionButton: FloatingActionButton(
         child: Icon(Icons.reply),
         onPressed: (){
           Navigator.pop(context);
