@@ -38,8 +38,6 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
         ),
       ),
 
-
-      //floatingActionButton:  _Botones(context),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.play_arrow),
         onPressed: _cambia,
@@ -95,14 +93,4 @@ Widget _Botones(BuildContext context) {
 
 }
 
-/*Widget _Change(){
-
-
-  _width += 50.0;
-  _height +=50.0;
-  _color = Colors.red;
-
-  //setState();
-
-}*/
 

@@ -23,7 +23,6 @@ class _ListaPageState extends State<ListaPage> {
     _agregar10();
     _Scroll.addListener((){
       if (_Scroll.position.pixels == _Scroll.position.maxScrollExtent){
-        //_agregar10();
         fetchData();
       }
     });
@@ -55,32 +54,36 @@ class _ListaPageState extends State<ListaPage> {
 
  Widget _crearLista() {
 
-    return ListView.builder(
-      controller: _Scroll,
-        itemCount: _listaNumeros.length,
-        itemBuilder: (BuildContext context, int index){
-          final _imagen = _listaNumeros[index];
-          return FadeInImage(
-            fit: BoxFit.contain,
-            image: NetworkImage('https://i.picsum.photos/id/3$_imagen/300/200.jpg'),
-            placeholder: AssetImage('assets/jar-loading.gif'),
-          );
-        },
+    return RefreshIndicator( //para recargar la pagina al hacer scroll hacia arriba
+
+      onRefresh: obtenerPag1,
+
+      child: ListView.builder(
+        controller: _Scroll,
+          itemCount: _listaNumeros.length,
+          itemBuilder: (BuildContext context, int index){
+            final _imagen = _listaNumeros[index];
+            return FadeInImage(
+              fit: BoxFit.contain,
+              image: NetworkImage('https://i.picsum.photos/id/3$_imagen/300/200.jpg'),
+              placeholder: AssetImage('assets/jar-loading.gif'),
+            );
+          },
+      ),
     );
 
  }
 
- void _agregar10(){
+ Future<Null> obtenerPag1() async{
+    final duration = new Duration(seconds: 2);
+    new Timer(duration, (){
 
-    for(var i=1; i<10; i++){
+      _listaNumeros.clear();
       _ultimoItem++;
-      _listaNumeros.add(_ultimoItem);
-    }
-
-    setState(() {
+      _agregar10();
 
     });
-
+    return Future.delayed(duration);
  }
 
   Future<Null> fetchData() async{
@@ -105,11 +108,23 @@ class _ListaPageState extends State<ListaPage> {
 
   }
 
+  void _agregar10(){
+
+    for(var i=1; i<10; i++){
+      _ultimoItem++;
+      _listaNumeros.add(_ultimoItem);
+    }
+
+    setState(() {
+
+    });
+
+  }
+
  Widget _crearLoading() {
 
     if (_isLoading){
       return Column(
-        //mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           Row(

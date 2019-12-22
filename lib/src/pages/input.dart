@@ -17,7 +17,7 @@ class _inputPageState extends State<inputPage> {
 
   List<String>_poderes = ['Volar','Rayos X','Super Aliento','Super Fuerza'] ;
 
-  TextEditingController _controlFecha = new TextEditingController(); //permite cambiar los valores de una caja de texto
+  TextEditingController _controlFecha = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +51,9 @@ class _inputPageState extends State<inputPage> {
 
     return TextField(
 
-      //autofocus: true, // para que abra en automático el teclado
-      textCapitalization: TextCapitalization.sentences, //para que agregue mayuscula a cada palabra
-      decoration: InputDecoration( //para agregar propiedades al input
+
+      textCapitalization: TextCapitalization.sentences,
+      decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
         ),
@@ -89,7 +89,7 @@ class _inputPageState extends State<inputPage> {
    return TextField(
 
      keyboardType: TextInputType.emailAddress,
-     decoration: InputDecoration( //para agregar propiedades al input
+     decoration: InputDecoration(
        border: OutlineInputBorder(
          borderRadius: BorderRadius.circular(15),
        ),
@@ -114,7 +114,7 @@ class _inputPageState extends State<inputPage> {
    return TextField(
 
        obscureText: true,
-       decoration: InputDecoration( //para agregar propiedades al input
+       decoration: InputDecoration(
          border: OutlineInputBorder(
            borderRadius: BorderRadius.circular(15),
          ),
@@ -138,8 +138,8 @@ Widget  _crearFecha(BuildContext context) {
 
     enableInteractiveSelection: false,
     controller: _controlFecha,
-    decoration: InputDecoration( //para agregar propiedades al input
-        border: OutlineInputBorder(
+    decoration: InputDecoration(
+          border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
         ),
       hintText: 'Fecha de nacimiento',
@@ -186,7 +186,6 @@ List<DropdownMenuItem<String>> getOpcionesDropdown(){
       lista.add(DropdownMenuItem(
 
         child: Text(poder),
-        //key: ,
         value: poder,
       ));
 
@@ -201,17 +200,17 @@ Widget  _crearDropdown() {
     return Row(
       children: <Widget>[
         Icon(Icons.select_all),
-    SizedBox(width: 30),
-    DropdownButton(
-    value: _opcSelect,
-      items: getOpcionesDropdown(),
-      onChanged: (opt){
-        setState(() {
-          _opcSelect = opt;
-        });
+        SizedBox(width: 30),
+        DropdownButton(
+          value: _opcSelect,
+          items: getOpcionesDropdown(),
+          onChanged: (opt){
+            setState(() {
+              _opcSelect = opt;
+            });
 
-      },
-    ),
+          },
+        ),
       ],
     );
 
